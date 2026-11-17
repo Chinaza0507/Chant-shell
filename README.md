@@ -1,4 +1,4 @@
-# Chant-shell (CSC 308 Mini Project)
+# Chant-shell (CSC 308 Mini Shell Project)
 
 Chant-shell is a small shell written in Rust using only the standard library. It reads commands from standard input, one per line, runs them, and prints only what the programs print. It never prints a prompt, and every error from the shell itself goes to standard error.
 
