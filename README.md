@@ -11,6 +11,30 @@ cargo build --release
 
 Run the unit tests with `cargo test`.
 
+## Usage examples
+
+Start the shell and type commands. There is no prompt, so the shell just waits for input. Type `exit` or press Ctrl+D to quit.
+
+```
+./target/release/shell_os
+```
+
+Any program installed on the system can be run, including `mkdir` and `ls`. They are ordinary programs, not built-ins:
+
+| You type | Output |
+|---|---|
+| `mkdir notes` | (creates the folder `notes`) |
+| `ls` | `notes` |
+| `cd notes` | (moves into `notes`) |
+| `echo hello > a.txt` | (writes `hello` into `a.txt`) |
+| `ls` | `a.txt` |
+| `cat a.txt` | `hello` |
+| `cd ..` | (moves back up) |
+| `ls notes \| wc -l` | `1` |
+| `mkdir notes` | an error from `mkdir` that the folder already exists (on standard error; the shell keeps going) |
+
+The same commands can be saved in a file and run all at once with `./target/release/shell_os < commands.txt`.
+
 ## What it supports
 
 - **Programs with arguments**, for example `echo hello world` or `cat file.txt`. Words are split on spaces and tabs. The shell waits for each program to finish before it reads the next line.
